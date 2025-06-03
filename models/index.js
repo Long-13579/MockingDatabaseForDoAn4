@@ -1,10 +1,10 @@
 // models/index.js
-const User = require('./User');
-const Exercise = require('./Exercise');
-const Plan = require('./Plan');
-const Session = require('./Session');
-const Set = require('./Set');
-const BodyTrack = require('./BodyTrack');
+const User = require('./user');
+const Exercise = require('./exercise');
+const Plan = require('./plan');
+const Session = require('./session');
+const Set = require('./set');
+const BodyTrack = require('./bodyTrack');
 
 module.exports = {
   User,
