@@ -38,7 +38,7 @@ exports.create = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const index = db.bodyTracks.findIndex(t => t.id === Number(req.params.id));
+    const index = db.bodyTracks.findIndex(t => t.id === Number(req.body.id));
     if (index !== -1) {
       db.bodyTracks[index] = { ...db.bodyTracks[index], ...req.body };
       res.status(200).send(db.bodyTracks[index]);
