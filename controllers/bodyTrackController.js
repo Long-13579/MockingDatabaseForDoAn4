@@ -7,10 +7,10 @@ exports.get = async (req, res) => {
 
     switch (req.query.type) {
       case 'id':
-        bodyTrackData = db.bodyTracks.find(t => t.Id === Number(req.query.id));
+        bodyTrackData = db.bodyTracks.find(t => t.id === Number(req.query.id));
         break;
       case 'userId':
-        bodyTrackData = db.bodyTracks.filter(t => t.UserId === Number(req.query.userId));
+        bodyTrackData = db.bodyTracks.filter(t => t.userId === Number(req.query.userId));
         break;
       default:
         bodyTrackData = db.bodyTracks;
@@ -37,7 +37,7 @@ exports.create = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const index = db.bodyTracks.findIndex(t => t.Id === Number(req.params.id));
+    const index = db.bodyTracks.findIndex(t => t.id === Number(req.params.id));
     if (index !== -1) {
       db.bodyTracks[index] = { ...db.bodyTracks[index], ...req.body };
       res.status(200).send(db.bodyTracks[index]);
@@ -52,7 +52,7 @@ exports.update = async (req, res) => {
 
 exports.delete = async (req, res) => {
   try {
-    const index = db.bodyTracks.findIndex(t => t.Id === Number(req.params.id));
+    const index = db.bodyTracks.findIndex(t => t.id === Number(req.params.id));
     if (index !== -1) {
       const deleted = db.bodyTracks.splice(index, 1);
       res.status(200).send(deleted[0]);
