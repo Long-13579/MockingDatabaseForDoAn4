@@ -23,6 +23,25 @@ exports.get = async (req, res) => {
   }
 };
 
+exports.login = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    const user = db.users.find(u => u.username === username && u.password === password);
+
+    if (user) {
+      res.status(200).send({
+        ...user
+      });
+    } else {
+      res.status(401).send({ message: 'Invalid username or password' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
 exports.create = async (req, res) => {
   try {
     const newUser = req.body;
