@@ -5,12 +5,16 @@ Content-Type: "application/json"
 
 ###
 
-POST {{BASE_URL}}/users/login
+GET {{BASE_URL}}/users?username=nam
 Content-Type: application/json
 
-{
-    "username": "nam",
-    "password": "Pass1234" 
-}
+{}
+
+###
+
+GET {{BASE_URL}}/users?id=1
+Content-Type: application/json
+
+{}
 
 ###

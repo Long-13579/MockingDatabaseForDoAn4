@@ -3,39 +3,20 @@ const MockingDatabase = require('../mock/mockingDatabase');
 const db = MockingDatabase.getInstance();
 
 exports.get = async (req, res) => {
-  console.log('get user');
   try {
     let userData;
 
-    switch (req.query.type) {
-      case 'id':
-        userData = db.users.find(u => u.id === req.query.id);
-        break;
-      default:
-        userData = db.users;
-        break;
+    if ('id' in req.query) {
+      userData = db.users.find(u => u.id === req.query.id);
+    }
+    else if ('username' in req.query) {
+      userData = db.users.find(u => u.username === req.query.username);
+    }
+    else {
+      userData = db.users;
     }
 
     res.status(200).send(userData);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Internal Server Error');
-  }
-};
-
-exports.login = async (req, res) => {
-  try {
-    const { username, password } = req.body;
-
-    const user = db.users.find(u => u.username === username && u.password === password);
-
-    if (user) {
-      res.status(200).send({
-        ...user
-      });
-    } else {
-      res.status(401).send({ message: 'Invalid username or password' });
-    }
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');
