@@ -1,0 +1,13 @@
+GET {{BASE_URL}}/bodyTracks
+Content-Type: "application/json"
+
+{}
+
+###
+
+DELETE  https://mockingdatabasefordoan4.onrender.com/bodyTracks/0
+Content-Type: "application/json"
+
+{}
+
+###

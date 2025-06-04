@@ -27,6 +27,7 @@ exports.get = async (req, res) => {
 exports.create = async (req, res) => {
   try {
     const newTrack = req.body;
+    newTrack.id = db.bodyTracks.length;
     db.bodyTracks.push(newTrack);
     res.status(201).send(newTrack);
   } catch (error) {

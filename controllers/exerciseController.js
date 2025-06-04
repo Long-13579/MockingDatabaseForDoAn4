@@ -24,6 +24,7 @@ exports.get = async (req, res) => {
 exports.create = async (req, res) => {
   try {
     const newExercise = req.body;
+    newExercise.id = db.exercises.length;
     db.exercises.push(newExercise);
     res.status(201).send(newExercise);
   } catch (error) {

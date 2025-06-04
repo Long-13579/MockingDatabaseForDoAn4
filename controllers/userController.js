@@ -26,6 +26,7 @@ exports.get = async (req, res) => {
 exports.create = async (req, res) => {
   try {
     const newUser = req.body;
+    newUser.id = db.users.length;
     db.users.push(newUser);
     res.status(201).send(newUser);
   } catch (error) {

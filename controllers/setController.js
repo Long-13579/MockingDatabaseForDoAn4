@@ -30,6 +30,7 @@ exports.get = async (req, res) => {
 exports.create = async (req, res) => {
   try {
     const newSet = req.body;
+    newSet.id = db.sets.length;
     db.sets.push(newSet);
     res.status(201).send(newSet);
   } catch (error) {
