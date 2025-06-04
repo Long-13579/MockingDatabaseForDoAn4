@@ -1,13 +1,24 @@
 GET {{BASE_URL}}/bodyTracks
-Content-Type: "application/json"
+Content-Type: application/json
 
 {}
 
 ###
 
 DELETE  https://mockingdatabasefordoan4.onrender.com/bodyTracks/0
-Content-Type: "application/json"
+Content-Type: application/json
 
 {}
 
 ###
+
+PUT {{BASE_URL}}/bodyTracks
+Content-Type: application/json
+
+{
+    "id": 1,
+    "height": 171,
+    "weight": 61,
+    "date": "2025-06-03T03:00:28.193Z",
+    "userId": 1 
+}
