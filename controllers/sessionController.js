@@ -41,7 +41,8 @@ exports.create = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const index = db.sessions.findIndex(s => s.id === Number(req.params.id));
+    const newSession = req.body;
+    const index = db.sessions.findIndex(s => s.id === Number(newSession.id));
     if (index !== -1) {
       db.sessions[index] = { ...db.sessions[index], ...req.body };
       res.status(200).send(db.sessions[index]);

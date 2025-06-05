@@ -36,7 +36,8 @@ exports.create = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const index = db.sets.findIndex(s => s.id === Number(req.params.id));
+    const newSet = req.body;
+    const index = db.sets.findIndex(s => s.id === Number(newSet.id));
     if (index !== -1) {
       db.sets[index] = { ...db.sets[index], ...req.body };
       res.status(200).send(db.sets[index]);

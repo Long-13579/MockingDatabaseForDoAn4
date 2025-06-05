@@ -36,7 +36,8 @@ exports.create = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const index = db.plans.findIndex(p => p.id === Number(req.params.id));
+    const newPlan = req.body;
+    const index = db.plans.findIndex(p => p.id === Number(newPlan.id));
     if (index !== -1) {
       db.plans[index] = { ...db.plans[index], ...req.body };
       res.status(200).send(db.plans[index]);

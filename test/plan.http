@@ -1,0 +1,12 @@
+GET {{BASE_URL}}/plans
+
+###
+
+PUT {{BASE_URL}}/plans
+Content-Type: application/json
+
+{
+    "id": 1,
+    "userId": 1,
+    "name": "Loss Weight"
+}
