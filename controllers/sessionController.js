@@ -30,7 +30,7 @@ exports.get = async (req, res) => {
 exports.create = async (req, res) => {
   try {
     const newSession = req.body;
-    newSession.id = db.sessions.length;
+    newSession.id = db.sessions.length + 1;
     db.sessions.push(newSession);
     res.status(201).send(newSession);
   } catch (error) {

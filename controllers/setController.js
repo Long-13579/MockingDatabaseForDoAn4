@@ -25,7 +25,7 @@ exports.get = async (req, res) => {
 exports.create = async (req, res) => {
   try {
     const newSet = req.body;
-    newSet.id = db.sets.length;
+    newSet.id = db.sets.length + 1;
     db.sets.push(newSet);
     res.status(201).send(newSet);
   } catch (error) {

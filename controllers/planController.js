@@ -25,7 +25,7 @@ exports.get = async (req, res) => {
 exports.create = async (req, res) => {
   try {
     const newPlan = req.body;
-    newPlan.id = db.plans.length;
+    newPlan.id = db.plans.length + 1;
     db.plans.push(newPlan);
     res.status(201).send(newPlan);
   } catch (error) {
