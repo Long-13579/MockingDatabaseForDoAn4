@@ -5,13 +5,10 @@ exports.get = async (req, res) => {
   try {
     let exerciseData;
 
-    switch (req.query.type) {
-      case 'id':
-        exerciseData = db.exercises.find(e => e.id === Number(req.query.id));
-        break;
-      default:
-        exerciseData = db.exercises;
-        break;
+    if ('id' in req.query) {
+      exerciseData = db.exercises.find(e => e.id === Number(req.query.id));
+    } else {
+      exerciseData = db.exercises;
     }
 
     res.status(200).send(exerciseData);

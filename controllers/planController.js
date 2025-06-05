@@ -5,16 +5,14 @@ exports.get = async (req, res) => {
   try {
     let planData;
 
-    switch (req.query.type) {
-      case 'id':
-        planData = db.plans.find(p => p.id === Number(req.query.id));
-        break;
-      case 'userId':
-        planData = db.plans.filter(p => p.userId === Number(req.query.userId));
-        break;
-      default:
-        planData = db.plans;
-        break;
+    if ('id' in req.query) {
+      planData = db.plans.find(p => p.id === Number(req.query.id));
+    } 
+    else if ('userId' in req.query) {
+      planData = db.plans.filter(p => p.userId === Number(req.query.userId));
+    }
+    else {
+      planData = db.plans;
     }
 
     res.status(200).send(planData);

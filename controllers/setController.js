@@ -5,19 +5,14 @@ exports.get = async (req, res) => {
   try {
     let setData;
 
-    switch (req.query.type) {
-      case 'id':
-        setData = db.sets.find(s => s.id === Number(req.query.id));
-        break;
-      case 'sessionId':
-        setData = db.sets.filter(s => s.sessionId === Number(req.query.sessionId));
-        break;
-      case 'exerciseId':
-        setData = db.sets.filter(s => s.exerciseId === Number(req.query.exerciseId));
-        break;
-      default:
-        setData = db.sets;
-        break;
+    if ('id' in req.query) {
+      setData = db.sets.find(s => s.id === Number(req.query.id));
+    } 
+    else if ('sessionId' in req.query) {
+      setData = db.sets.filter(s => s.sessionId === Number(req.query.sessionId));
+    }
+    else {
+      setData = db.sets;
     }
 
     res.status(200).send(setData);
