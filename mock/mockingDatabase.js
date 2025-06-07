@@ -40,7 +40,7 @@ class MockingDatabase {
   }
 
   generatePlans() {
-    return [new Plan(1, 1, "Loss weight"), new Plan(2, 1, "Build muscle"), new Plan(3, 2, "Yoga")];
+    return [new Plan(1, 1, "Build muscle"), new Plan(2, 1, "Loss weight"), new Plan(3, 2, "Yoga")];
   }
 
   generateSessions() {
