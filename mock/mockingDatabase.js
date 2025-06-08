@@ -53,21 +53,21 @@ class MockingDatabase {
 
   generateSets() {
     return [
-      new Set(1, 1, 1, 10, 12, 3),
-      new Set(2, 1, 1, 15, 12, 3),
-      new Set(3, 1, 1, 20, 12, 3),
-      new Set(4, 1, 2, 10, 12, 3),
-      new Set(5, 1, 2, 15, 12, 3),
-      new Set(6, 1, 2, 20, 12, 3),
-      new Set(7, 2, 3, 0, 12, 3),
-      new Set(8, 2, 3, 0, 12, 3),
-      new Set(9, 2, 3, 0, 12, 3),
-      new Set(10, 3, 1, 10, 12, 3),
-      new Set(11, 3, 1, 15, 12, 3),
-      new Set(12, 3, 1, 20, 12, 3),
-      new Set(13, 4, 3, 0, 12, 3),
-      new Set(14, 4, 3, 0, 12, 3),
-      new Set(15, 4, 3, 0, 12, 3)
+      new Set(1, 1, 1, 10, 12, 3, false),
+      new Set(2, 1, 1, 15, 12, 3, false),
+      new Set(3, 1, 1, 20, 12, 3, false),
+      new Set(4, 1, 2, 10, 12, 3, false),
+      new Set(5, 1, 2, 15, 12, 3, false),
+      new Set(6, 1, 2, 20, 12, 3, false),
+      new Set(7, 2, 3, 0, 12, 3, false),
+      new Set(8, 2, 3, 0, 12, 3, false),
+      new Set(9, 2, 3, 0, 12, 3, false),
+      new Set(10, 3, 1, 10, 12, 3, false),
+      new Set(11, 3, 1, 15, 12, 3, false),
+      new Set(12, 3, 1, 20, 12, 3, false),
+      new Set(13, 4, 3, 0, 12, 3, false),
+      new Set(14, 4, 3, 0, 12, 3, false),
+      new Set(15, 4, 3, 0, 12, 3, false)
     ];
   }
 }
