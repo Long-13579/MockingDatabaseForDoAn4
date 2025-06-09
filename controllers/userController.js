@@ -65,3 +65,20 @@ exports.delete = async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 };
+
+exports.login = async (req, res) => {
+  try {
+    const index = db.users.findIndex(u => u.username == req.body.username);
+    if (index !== -1) {
+      const user = db.users[index];
+      if (user.password == req.body.password) {
+        res.status(200).send({userId: user.id});
+        return;
+      }
+    } 
+    res.status(401).send('Wrong Username or Password');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+}
