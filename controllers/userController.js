@@ -72,7 +72,7 @@ exports.login = async (req, res) => {
     if (index !== -1) {
       const user = db.users[index];
       if (user.password == req.body.password) {
-        res.status(200).send({userId: user.id});
+        res.status(200).send({userId: user.id, fullName: user.fullName});
         return;
       }
     } 
