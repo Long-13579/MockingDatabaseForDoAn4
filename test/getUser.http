@@ -26,3 +26,19 @@ Content-Type: application/json
     "username": "nam",
     "password": "Pass1234"
 }
+
+###
+
+PUT {{BASE_URL}}/users
+Content-Type: application/json
+
+{
+  "id": "1",
+  "username": "nam",
+  "password": "Pass1234",
+  "fullName": "Le Nguyen Nhat Nam",
+  "email": "namlenguyen@gmail.com",
+  "phoneNumber": "099912345",
+  "dateOfBirth": "1999-01-01",
+  "gender": "Male"
+}
