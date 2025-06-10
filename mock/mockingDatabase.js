@@ -18,8 +18,8 @@ class MockingDatabase {
 
   generateUsers() {
     return [
-      new User("1", "nam", "Pass1234", "Le Nguyen Nhat Nam", "namle@gmail.com", "099912345", "1999-01-01", "Male"),
-      new User("2", "long", "Pass1234", "Nguyen Hoang Long", "longnguyen@gmail.com", "099912345", "1999-01-11", "Male")
+      new User("1", "nam", "Pass1234", "Le Nguyen Nhat Nam", "namle@gmail.com", "099912345", "01/01/1999", "Male"),
+      new User("2", "long", "Pass1234", "Nguyen Hoang Long", "longnguyen@gmail.com", "099912345", "12/06/2003", "Male")
     ];
   }
 

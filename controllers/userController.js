@@ -26,7 +26,14 @@ exports.get = async (req, res) => {
 exports.create = async (req, res) => {
   try {
     const newUser = req.body;
-    newUser.id = db.users.length + 1;
+
+    // Check if username already exists
+    const existingUser = db.users.find(user => user.username === newUser.username);
+    if (existingUser) {
+      return res.status(409).send({ message: 'Username already exists' });
+    }
+
+    newUser.id = (db.users.length + 1).toString(); // Ensure id is a string
     db.users.push(newUser);
     res.status(201).send(newUser);
   } catch (error) {

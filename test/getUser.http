@@ -39,6 +39,22 @@ Content-Type: application/json
   "fullName": "Le Nguyen Nhat Nam",
   "email": "namlenguyen@gmail.com",
   "phoneNumber": "099912345",
-  "dateOfBirth": "1999-01-01",
+  "dateOfBirth": "01/01/1999",
+  "gender": "Male"
+}
+
+###
+
+POST {{BASE_URL}}/users
+Content-Type: application/json
+
+{
+  "id": "0",
+  "username": "longnguyen",
+  "password": "Pass1234",
+  "fullName": "Le Nguyen Nhat Nam",
+  "email": "namlenguyen@gmail.com",
+  "phoneNumber": "099912345",
+  "dateOfBirth": "01/01/1999",
   "gender": "Male"
 }
