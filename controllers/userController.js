@@ -1,5 +1,6 @@
-// controllers/userController.js
-const MockingDatabase = require('../mock/mockingDatabase');
+const crypto = require("crypto");
+const sendEmail = require("../common/resetPasswordMail");
+const MockingDatabase = require("../mock/mockingDatabase");
 const db = MockingDatabase.getInstance();
 
 exports.get = async (req, res) => {
@@ -89,3 +90,37 @@ exports.login = async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 }
+
+
+// Helper to generate random password
+const generateRandomPassword = (length = 10) => {
+  return crypto.randomBytes(length)
+    .toString("base64")  // gives random characters
+    .slice(0, length)    // trim to exact length
+    .replace(/\//g, "A") // remove any `/` from base64
+    .replace(/\+/g, "B"); // remove any `+`
+};
+
+exports.resetPassword = async (req, res) => {
+  try {
+    const { userId } = req.body;
+
+    // 1️⃣ Find user
+    const user = db.users.find(u => u.id == userId);;
+    if (!user) return res.status(404).send("User not found");
+
+    // 2️⃣ Generate random password
+    const newPassword = generateRandomPassword(12);
+
+    user.password = newPassword;
+
+    // 4️⃣ Send email
+    await sendEmail(user.email, user.fullName, newPassword)
+
+    // 5️⃣ Respond to client
+    res.status(200).send("Password reset and email sent successfully.");
+  } catch (error) {
+    console.error("Error resetting password:", error);
+    res.status(500).send("Failed to reset password.");
+  }
+};

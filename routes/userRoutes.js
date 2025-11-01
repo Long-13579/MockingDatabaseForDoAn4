@@ -9,5 +9,6 @@ router.post('/', userController.create);
 router.post('/login', userController.login);
 router.put('/', userController.update);
 router.delete('/:id', userController.delete);
+router.put('/reset-password', userController.resetPassword);
 
 module.exports = router;
