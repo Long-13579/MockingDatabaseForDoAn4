@@ -103,10 +103,10 @@ const generateRandomPassword = (length = 10) => {
 
 exports.resetPassword = async (req, res) => {
   try {
-    const { userId } = req.body;
+    const { username } = req.body;
 
     // 1️⃣ Find user
-    const user = db.users.find(u => u.id == userId);;
+    const user = db.users.find(u => u.username == username);
     if (!user) return res.status(404).send("User not found");
 
     // 2️⃣ Generate random password
